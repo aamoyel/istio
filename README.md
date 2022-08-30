@@ -48,14 +48,20 @@ This project allows you to deploy [Istio](https://istio.io/) on Kubernetes with 
 You need to have :
 * An operational Kubernetes cluster
 * Kustomize binary
+* istioctl binary
 
 ### Installation
-1. Clone the repo :
+1. Install Istio with istioctl or other method. With istioctl:
+   ```sh
+   # Install istio with a specific revision (change 1-14-3 by your version)
+   istioctl install -y -r 1-14-3
+   ```
+2. Clone the repo :
    ```sh
    git clone https://github.com/aamoyel/istio.git && cd istio
    ```
-2. Change ingresses to match your setup
-3. Deploy the project on your cluster
+3. Change ingresses files to match your setup
+4. Deploy istio addons on your cluster
    ```sh
    kustomize build . | kubectl apply -f -
    ```
